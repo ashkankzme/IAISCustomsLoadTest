@@ -38,6 +38,7 @@ ADD doro-lxde-wallpapers /usr/share/doro-lxde-wallpapers/
 FROM java:8
 FROM maven
 ADD test-configs /test-configs/
+RUN chmod -R 755 /test-configs
 
 # end
 
