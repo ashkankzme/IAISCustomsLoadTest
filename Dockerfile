@@ -44,6 +44,6 @@ ADD test-configs /test-configs/
 EXPOSE 6080
 WORKDIR /root
 ENTRYPOINT ["/startup.sh"]
-ADD src /src/
-ADD pom.xml /
+ADD src /root/src/
+ADD pom.xml /root
 RUN mvn package
