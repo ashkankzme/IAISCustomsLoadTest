@@ -25,7 +25,7 @@ public class VorudMovaghatTest {
     @Test(invocationCount = 15, threadPoolSize = 15)
     public void testLoginCustoms113() throws Exception {
         StringBuilder verificationErrors = new StringBuilder();
-        System.setProperty("webdriver.chrome.driver", "/home/ashkan/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "/test-configs/chromedriver");
         WebDriver driver = new ChromeDriver();
         String baseUrl = "http://172.16.111.113:8080/";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
