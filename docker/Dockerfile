@@ -35,7 +35,7 @@ ADD doro-lxde-wallpapers /usr/share/doro-lxde-wallpapers/
 
 # adding things for testing
 
-FROM java:oracle-java8
+FROM java:8
 FROM maven
 ADD test-configs /test-configs/
 
