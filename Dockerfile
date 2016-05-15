@@ -45,5 +45,5 @@ EXPOSE 6080
 WORKDIR /root
 ENTRYPOINT ["/startup.sh"]
 ADD src /src/
-ADD pom.xml /pom.xml
+ADD pom.xml /
 RUN mvn package
