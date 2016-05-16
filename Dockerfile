@@ -47,4 +47,4 @@ WORKDIR /root
 ENTRYPOINT ["/startup.sh"]
 ADD src /root/src/
 ADD pom.xml /root
-RUN mvn package
+#RUN mvn package
