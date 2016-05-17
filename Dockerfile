@@ -46,5 +46,5 @@ ADD doro-lxde-wallpapers /usr/share/doro-lxde-wallpapers/
 
 EXPOSE 6080
 WORKDIR /root
-ENTRYPOINT ["./startup.sh"]
+ENTRYPOINT ["/startup.sh"]
 #RUN mvn package
