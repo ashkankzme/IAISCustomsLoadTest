@@ -45,6 +45,6 @@ ADD test-configs /test-configs/
 RUN chmod -R 755 /test-configs
 ADD src /root/src/
 ADD pom.xml /root
-RUN apt-get install -y maven
+RUN apt-get update && apt-get install -y maven
 
 # end
