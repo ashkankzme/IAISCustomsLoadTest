@@ -4,6 +4,17 @@ MAINTAINER Doro Wu <fcwu.tw@gmail.com>
 ENV DEBIAN_FRONTEND noninteractive
 ENV HOME /root
 
+# adding things for testing
+
+FROM java:8
+ADD test-configs /test-configs/
+RUN chmod -R 755 /test-configs
+ADD src /root/src/
+ADD pom.xml /root
+RUN apt-get update && apt-get install -y maven
+
+# end
+
 RUN apt-get update \
     && apt-get install -y --force-yes --no-install-recommends supervisor \
         openssh-server pwgen sudo vim-tiny \
@@ -36,16 +47,4 @@ ADD doro-lxde-wallpapers /usr/share/doro-lxde-wallpapers/
 EXPOSE 6080
 WORKDIR /root
 RUN chmod 755 /startup.sh
-
-# adding things for testing
-
-FROM java:8
-ADD test-configs /test-configs/
-RUN chmod -R 755 /test-configs
-ADD src /root/src/
-ADD pom.xml /root
-RUN apt-get update && apt-get install -y maven
-
-# end
-
 ENTRYPOINT ["/startup.sh"]
