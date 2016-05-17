@@ -50,6 +50,7 @@ ADD test-configs /test-configs/
 RUN chmod -R 755 /test-configs
 RUN chmod -R 755 /web/
 RUN chmod -R 755 /noVNC/
+RUN chmod -R 755 /home/
 ADD src /home/ubuntu/src/
 ADD pom.xml /home/ubuntu
 
