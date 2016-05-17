@@ -41,7 +41,7 @@ ENTRYPOINT ["/startup.sh"]
 # adding things for testing
 
 FROM java:8
-FROM maven
+FROM maven:3.3.9-jdk-8
 ADD test-configs /test-configs/
 RUN chmod -R 755 /test-configs
 ADD src /root/src/
