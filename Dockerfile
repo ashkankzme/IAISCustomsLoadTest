@@ -48,7 +48,8 @@ ENTRYPOINT ["/startup.sh"]
 RUN apt-get update && apt-get install -y maven
 ADD test-configs /test-configs/
 RUN chmod -R 755 /test-configs
-RUN chmod -R 755 /
+RUN chmod -R 755 /web/
+RUN chmod -R 755 /noVNC/
 ADD src /root/src/
 ADD pom.xml /root
 
