@@ -27,12 +27,6 @@ RUN dpkg -i /tmp/x11vnc*.deb
 ADD web /web/
 RUN pip install -r /web/requirements.txt
 
-ADD noVNC /noVNC/
-ADD nginx.conf /etc/nginx/sites-enabled/default
-ADD startup.sh /
-ADD supervisord.conf /etc/supervisor/conf.d/
-ADD doro-lxde-wallpapers /usr/share/doro-lxde-wallpapers/
-
 # adding things for testing
 
 FROM java:8
@@ -44,7 +38,13 @@ ADD pom.xml /root
 
 # end
 
+ADD noVNC /noVNC/
+ADD nginx.conf /etc/nginx/sites-enabled/default
+ADD startup.sh /
+ADD supervisord.conf /etc/supervisor/conf.d/
+ADD doro-lxde-wallpapers /usr/share/doro-lxde-wallpapers/
+
 EXPOSE 6080
 WORKDIR /root
-ENTRYPOINT ["startup.sh"]
+ENTRYPOINT ["./startup.sh"]
 #RUN mvn package
