@@ -40,11 +40,11 @@ ENTRYPOINT ["/startup.sh"]
 
 # adding things for testing
 
-RUN apt-get update
-RUN apt-get install -y --force-yes software-properties-common
-RUN add-apt-repository ppa:webupd8team/java
-RUN apt-get update
-RUN apt-get install -y --force-yes oracle-java8-installer
+#RUN apt-get update
+#RUN apt-get install -y --force-yes software-properties-common
+#RUN add-apt-repository ppa:webupd8team/java
+#RUN apt-get update
+#RUN apt-get install -y --force-yes oracle-java8-installer
 RUN apt-get update && apt-get install -y maven
 ADD test-configs /test-configs/
 RUN chmod -R 755 /test-configs
