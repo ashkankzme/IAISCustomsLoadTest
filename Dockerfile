@@ -20,17 +20,6 @@ RUN apt-get update \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
 
-# adding things for testing
-
-FROM java:8
-FROM maven
-ADD test-configs /test-configs/
-RUN chmod -R 755 /test-configs
-ADD src /root/src/
-ADD pom.xml /root
-
-# end
-
 ADD https://dl.dropboxusercontent.com/u/23905041/x11vnc_0.9.14-1.1ubuntu1_amd64.deb /tmp/
 ADD https://dl.dropboxusercontent.com/u/23905041/x11vnc-data_0.9.14-1.1ubuntu1_all.deb /tmp/
 RUN dpkg -i /tmp/x11vnc*.deb
@@ -46,6 +35,16 @@ ADD doro-lxde-wallpapers /usr/share/doro-lxde-wallpapers/
 
 EXPOSE 6080
 WORKDIR /root
-RUN chmod 755 /startup.sh
+٫RUN chmod 755 /startup.sh
 ENTRYPOINT ["/startup.sh"]
 #RUN mvn package
+# adding things for testing
+
+FROM java:8
+FROM maven
+ADD test-configs /test-configs/
+RUN chmod -R 755 /test-configs
+ADD src /root/src/
+ADD pom.xml /root
+
+# end
