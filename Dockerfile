@@ -40,6 +40,7 @@ ENTRYPOINT ["/startup.sh"]
 
 # adding things for testing
 
+RUN apt-get update
 RUN apt-get install -y software-properties-common
 RUN add-apt-repository ppa:webupd8team/java
 RUN apt-get update
