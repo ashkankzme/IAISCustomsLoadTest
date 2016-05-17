@@ -33,6 +33,10 @@ ADD startup.sh /
 ADD supervisord.conf /etc/supervisor/conf.d/
 ADD doro-lxde-wallpapers /usr/share/doro-lxde-wallpapers/
 
+EXPOSE 6080
+WORKDIR /root
+RUN chmod 755 /startup.sh
+
 # adding things for testing
 
 FROM java:8
@@ -44,7 +48,4 @@ RUN apt-get update && apt-get install -y maven
 
 # end
 
-EXPOSE 6080
-WORKDIR /root
-RUN chmod 755 /startup.sh
 ENTRYPOINT ["/startup.sh"]
