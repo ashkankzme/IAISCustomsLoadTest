@@ -4,17 +4,6 @@ MAINTAINER Doro Wu <fcwu.tw@gmail.com>
 ENV DEBIAN_FRONTEND noninteractive
 ENV HOME /root
 
-# adding things for testing
-
-FROM java:8
-ADD test-configs /test-configs/
-RUN chmod -R 755 /test-configs
-ADD src /root/src/
-ADD pom.xml /root
-RUN apt-get update && apt-get install -y maven
-
-# end
-
 RUN apt-get update \
     && apt-get install -y --force-yes --no-install-recommends supervisor \
         openssh-server pwgen sudo vim-tiny \
@@ -48,3 +37,16 @@ EXPOSE 6080
 WORKDIR /root
 RUN chmod 755 /startup.sh
 ENTRYPOINT ["/startup.sh"]
+
+# adding things for testing
+
+RUN add-apt-repository ppa:webupd8team/java
+RUN apt-get update
+RUN apt-get install oracle-java8-installer
+RUN apt-get update && apt-get install -y maven
+ADD test-configs /test-configs/
+RUN chmod -R 755 /test-configs
+ADD src /root/src/
+ADD pom.xml /root
+
+# end
