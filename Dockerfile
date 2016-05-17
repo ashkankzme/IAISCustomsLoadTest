@@ -39,12 +39,12 @@ FROM java:8
 FROM maven
 ADD test-configs /test-configs/
 RUN chmod -R 755 /test-configs
+ADD src /root/src/
+ADD pom.xml /root
 
 # end
 
 EXPOSE 6080
 WORKDIR /root
 ENTRYPOINT ["/startup.sh"]
-ADD src /root/src/
-ADD pom.xml /root
 #RUN mvn package
