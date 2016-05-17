@@ -45,6 +45,6 @@ ADD test-configs /test-configs/
 RUN chmod -R 755 /test-configs
 ADD src /root/src/
 ADD pom.xml /root
-FROM maven
+RUN apt-get install -y mvn
 
 # end
