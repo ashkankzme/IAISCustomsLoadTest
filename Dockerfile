@@ -37,7 +37,7 @@ EXPOSE 6080
 WORKDIR /root
 RUN chmod 755 /startup.sh
 ENTRYPOINT ["/startup.sh"]
-#RUN mvn package
+
 # adding things for testing
 
 FROM java:8
