@@ -6,6 +6,12 @@ import sys
 import subprocess
 import signal
 
+def open_firefox():
+	from marionette import Marionette
+	os.system("firefox -marionette &")
+	cl = Marionette('localhost', port=2828)
+	cl.start_session()
+	cl.navigate("http://google.com")
 
 def run_with_reloader(main_func, extra_files=None, interval=1):
     """Run the given function in an independent python interpreter."""
@@ -117,6 +123,8 @@ def main():
             app.run(host='', port=PORT)
         except socket.error as e:
             print(e)
+        
+        open_firefox()
 
     DEBUG = True if '--debug' in sys.argv else False
     STAGING = True if '--staging' in sys.argv else False
