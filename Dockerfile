@@ -53,5 +53,7 @@ RUN chmod -R 755 /noVNC/
 RUN mkdir loadtest
 ADD src /loadtest/src/
 ADD pom.xml /loadtest
+RUN pip install marionette_client
+RUN python /test-configs/openfirefox.py
 
 # end
