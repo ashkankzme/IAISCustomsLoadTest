@@ -33,6 +33,8 @@ ADD startup.sh /
 ADD supervisord.conf /etc/supervisor/conf.d/
 ADD doro-lxde-wallpapers /usr/share/doro-lxde-wallpapers/
 
+RUN pip install marionette_client
+
 EXPOSE 6080
 WORKDIR /root
 RUN chmod 755 /startup.sh
@@ -45,7 +47,7 @@ ENTRYPOINT ["/startup.sh"]
 #RUN add-apt-repository ppa:webupd8team/java
 #RUN apt-get update
 #RUN apt-get install -y --force-yes oracle-java8-installer
-RUN apt-get update && apt-get install -y maven
+#RUN apt-get update && apt-get install -y maven
 ADD test-configs /test-configs/
 RUN chmod -R 755 /test-configs
 RUN chmod -R 755 /web/
@@ -53,6 +55,5 @@ RUN chmod -R 755 /noVNC/
 RUN mkdir loadtest
 ADD src /loadtest/src/
 ADD pom.xml /loadtest
-RUN pip install marionette_client
 
 # end
