@@ -33,7 +33,12 @@ ADD startup.sh /
 ADD supervisord.conf /etc/supervisor/conf.d/
 ADD doro-lxde-wallpapers /usr/share/doro-lxde-wallpapers/
 
+#my stuff
+
 RUN pip install marionette_client
+ADD run_firefox.conf /etc/init/run_firefox.conf
+
+# end
 
 EXPOSE 6080
 WORKDIR /root
