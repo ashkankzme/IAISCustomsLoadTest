@@ -54,6 +54,6 @@ RUN mkdir loadtest
 ADD src /loadtest/src/
 ADD pom.xml /loadtest
 RUN pip install marionette_client
-CMD python /test-configs/open-firefox.py
+CMD /test-configs/open-firefox.py
 
 # end

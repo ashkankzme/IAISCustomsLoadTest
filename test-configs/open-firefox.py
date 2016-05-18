@@ -1,3 +1,4 @@
+#/usr/bin/python
 import os
 from marionette import Marionette
 os.system("firefox -marionette &")
