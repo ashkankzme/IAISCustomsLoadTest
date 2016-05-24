@@ -60,6 +60,5 @@ RUN chmod -R 755 /noVNC/
 RUN mkdir loadtest
 ADD src /loadtest/src/
 ADD pom.xml /loadtest
-CMD sh /test-configs/open-firefox.sh
 
 # end
