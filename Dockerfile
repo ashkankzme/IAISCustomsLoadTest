@@ -35,8 +35,8 @@ ADD doro-lxde-wallpapers /usr/share/doro-lxde-wallpapers/
 
 #my stuff
 
-ADD xstartup /etc/vnc/xstartup
-RUN chmod 755 /etc/vnc/xstartup
+ADD xstartup /root/.vnc/xstartup
+RUN chmod 755 /root/.vnc/xstartup
 RUN pip install marionette_client
 ADD run_firefox.conf /etc/init/run_firefox.conf
 
