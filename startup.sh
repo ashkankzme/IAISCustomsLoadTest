@@ -11,7 +11,7 @@ echo "ubuntu:$PASS" | chpasswd
 sudo -u ubuntu -i bash -c "mkdir -p /home/ubuntu/.config/pcmanfm/LXDE/ \
     && cp /usr/share/doro-lxde-wallpapers/desktop-items-0.conf /home/ubuntu/.config/pcmanfm/LXDE/"
 
-mkdir -p /home/ubuntu/.vnc && sudo chown ubuntu:ubuntu -R /home/ubuntu/.vnc && chmod 755 -R /home/ubuntu/.vnc && sudo cp /test-configs/xstartup > /home/ubuntu/.vnc/xstartup
+mkdir -p /home/ubuntu/.vnc && sudo chown ubuntu:ubuntu -R /home/ubuntu/.vnc && chmod 755 -R /home/ubuntu/.vnc && sudo cp /test-configs/xstartup > /home/ubuntu/.vnc/xstartup && sudo chown ubuntu:ubuntu -R /home/ubuntu/.vnc && chmod 755 -R /home/ubuntu/.vnc
 cd /web && ./run.py > /var/log/web.log 2>&1 &
 nginx -c /etc/nginx/nginx.conf
 exec /usr/bin/supervisord -n
